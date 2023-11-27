@@ -23,15 +23,11 @@ export class MyComponent {
     const count = this.count || 1; // Use a default value if count is not provided
 
     for (let i = 0; i < count; i++) {
-      const webComponent = document.createElement('div');
-      const shadow = webComponent.attachShadow({ mode: 'open' });
+      // Create an Ion button
+      const ionButton = document.createElement('ion-button');
+      ionButton.textContent = `Button`;
 
-      // You can customize the content of the shadow DOM here
-      const content = document.createElement('span');
-      content.textContent = `This is a shadow DOM content`;
-      shadow.appendChild(content);
-
-      shadowRoot.appendChild(webComponent);
+      shadowRoot.appendChild(ionButton);
     }
 
     // Dispatch an event to notify that components have been appended
@@ -56,7 +52,7 @@ export class MyComponent {
           Count:
           <input type="number" value={this.count} onInput={(event) => this.handleCountChange(event)} />
         </label>
-        <button onClick={() => this.handleButtonClick()}>Append Components</button>
+        <button onClick={() => this.handleButtonClick()}>Append Buttons</button>
       </div>
     );
   }
